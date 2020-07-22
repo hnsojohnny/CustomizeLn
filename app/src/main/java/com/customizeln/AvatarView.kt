@@ -1,10 +1,11 @@
 package com.customizeln
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Paint
+import android.graphics.*
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.RequiresApi
 
 /**
  * @author: hs-johnny
@@ -12,11 +13,35 @@ import android.view.View
  * @description:
  */
 val IMG_WIDTH = 200f.dp2px
+val PADDING = 200f.dp2px
+val STROKE_WIDTH = 8f.dp2px
+
 class AvatarView constructor(context: Context, attr: AttributeSet): View(context, attr) {
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val xfm = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onDraw(canvas: Canvas) {
+        canvas.drawOval(PADDING - STROKE_WIDTH,PADDING - STROKE_WIDTH,
+            PADDING + IMG_WIDTH + STROKE_WIDTH, PADDING + IMG_WIDTH + STROKE_WIDTH, paint)
+        val count = canvas.saveLayer(PADDING,PADDING,
+            PADDING + IMG_WIDTH, PADDING + IMG_WIDTH, paint)
+        canvas.drawOval(PADDING,PADDING,
+            PADDING + IMG_WIDTH, PADDING + IMG_WIDTH, paint )
+        paint.xfermode = xfm
+        canvas.drawBitmap(getBitmap(), PADDING,PADDING, paint)
+        paint.xfermode = null
+        canvas.restoreToCount(count)
+    }
 
+    private fun getBitmap(): Bitmap{
+        val op: BitmapFactory.Options = BitmapFactory.Options()
+        op.inJustDecodeBounds = true
+        BitmapFactory.decodeResource(resources, R.drawable.wuyanzu, op)
+        op.inJustDecodeBounds = false
+        op.inDensity = op.outWidth
+        op.inTargetDensity = IMG_WIDTH.toInt()
+        return BitmapFactory.decodeResource(resources, R.drawable.wuyanzu, op)
     }
 }

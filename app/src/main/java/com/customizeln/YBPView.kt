@@ -10,13 +10,13 @@ import com.customizeln.dp2px
 import kotlin.math.cos
 import kotlin.math.sin
 
-val RADUIAS = 200f.dp2px
-const val DEFAULT_ANGLE = 120
-val SMALL_WIDTH = 5f.dp2px
-val SMALL_HEIGHT = 20f.dp2px
-val POINT_LENGHT = (RADUIAS - SMALL_HEIGHT * 1.5).toInt()
-const val ANGLE = (360 - DEFAULT_ANGLE) / 20
-const val START_ANGLE = 90 + DEFAULT_ANGLE/2
+private val RADUIAS = 200f.dp2px
+private const val DEFAULT_ANGLE = 120
+private val SMALL_WIDTH = 5f.dp2px
+private val SMALL_HEIGHT = 20f.dp2px
+private val POINT_LENGHT = (RADUIAS - SMALL_HEIGHT * 1.5).toInt()
+private const val ANGLE = (360 - DEFAULT_ANGLE) / 20
+private const val START_ANGLE = 90 + DEFAULT_ANGLE/2
 
 class YBPView constructor(context: Context, attr: AttributeSet) : View(context, attr){
 

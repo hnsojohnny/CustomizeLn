@@ -12,9 +12,9 @@ import androidx.annotation.RequiresApi
  * @date: 2020/7/22
  * @description:
  */
-val IMG_WIDTH = 200f.dp2px
-val PADDING = 200f.dp2px
-val STROKE_WIDTH = 8f.dp2px
+private val IMG_WIDTH = 200f.dp2px
+private val PADDING = 200f.dp2px
+private val STROKE_WIDTH = 8f.dp2px
 
 class AvatarView constructor(context: Context, attr: AttributeSet): View(context, attr) {
 

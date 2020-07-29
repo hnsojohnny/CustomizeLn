@@ -12,7 +12,8 @@ import com.customizeln.dp2px
 import kotlin.math.cos
 import kotlin.math.sin
 
-val translate = 20f.dp2px
+private val translate = 20f.dp2px
+private val RADUIAS = 200f.dp2px
 
 class Pie(context: Context, attributeSet: AttributeSet) : View(context, attributeSet){
 

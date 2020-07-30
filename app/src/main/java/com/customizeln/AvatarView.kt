@@ -16,7 +16,9 @@ private val IMG_WIDTH = 200f.dp2px
 private val PADDING = 200f.dp2px
 private val STROKE_WIDTH = 8f.dp2px
 
-class AvatarView constructor(context: Context, attr: AttributeSet): View(context, attr) {
+class AvatarView constructor(context: Context, attr: AttributeSet?): View(context, attr) {
+
+    constructor(context: Context): this(context, null)
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val xfm = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)

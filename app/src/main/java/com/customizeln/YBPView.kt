@@ -18,7 +18,9 @@ private val POINT_LENGHT = (RADUIAS - SMALL_HEIGHT * 1.5).toInt()
 private const val ANGLE = (360 - DEFAULT_ANGLE) / 20
 private const val START_ANGLE = 90 + DEFAULT_ANGLE/2
 
-class YBPView constructor(context: Context, attr: AttributeSet) : View(context, attr){
+class YBPView constructor(context: Context, attr: AttributeSet?) : View(context, attr){
+
+    constructor(context: Context): this(context, null)
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val path: Path = Path()

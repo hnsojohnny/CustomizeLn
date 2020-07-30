@@ -17,9 +17,9 @@ class HomeAdapter constructor(val onItemListener: OnItemListener) : RecyclerView
     val titles = arrayListOf<String>().apply {
         add("仪表盘")
         add("饼状图")
-        add("饼状图")
-        add("饼状图")
         add("头像")
+        add("文字测量")
+        add("图文混排")
     }
     val intent = Intent()
 

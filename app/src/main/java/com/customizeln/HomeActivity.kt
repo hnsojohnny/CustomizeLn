@@ -18,14 +18,12 @@ class HomeActivity : AppCompatActivity(){
         setContentView(R.layout.activity_home)
         val rv = findViewById<RecyclerView>(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
-        val intent = Intent()
         rv.adapter = HomeAdapter(object : HomeAdapter.OnItemListener {
             override fun onClick(position: Int) {
-                intent.setClass(this@HomeActivity, when (position){
-                    0 -> PieActivity::class.java
-                    1- >
-                    else ->
-                })
+                Intent(this@HomeActivity, MainActivity::class.java).apply {
+                    action = position.toString()
+                    startActivity(this)
+                }
             }
         })
     }

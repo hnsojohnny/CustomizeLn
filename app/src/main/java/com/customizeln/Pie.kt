@@ -15,7 +15,9 @@ import kotlin.math.sin
 private val translate = 20f.dp2px
 private val RADUIAS = 200f.dp2px
 
-class Pie(context: Context, attributeSet: AttributeSet) : View(context, attributeSet){
+class Pie(context: Context, attributeSet: AttributeSet?) : View(context, attributeSet){
+
+    constructor(context: Context): this(context, null)
 
     val angleList = arrayListOf(60, 120, 40, 80, 60)
     val colorList = arrayListOf(Color.GREEN, Color.BLUE, Color.RED, Color.YELLOW,  Color.CYAN)

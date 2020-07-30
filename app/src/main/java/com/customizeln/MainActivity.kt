@@ -2,10 +2,28 @@ package com.customizeln
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.coustomdemo.Pie
+import com.example.coustomdemo.YBPView
 
 class MainActivity : AppCompatActivity() {
+
+    private var index: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        index = intent.action?.toInt()!!
+        setView()
+    }
+
+    private fun setView(){
+        val view = when(index){
+            0 -> YBPView(this)
+            1 -> Pie(this)
+            2 -> AvatarView(this)
+            3 -> PieAndTextView(this)
+            4 -> ImgAndTextView(this)
+            else -> null
+        }
+        setContentView(view)
     }
 }

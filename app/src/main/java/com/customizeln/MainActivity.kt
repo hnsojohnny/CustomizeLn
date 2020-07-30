@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             2 -> AvatarView(this)
             3 -> PieAndTextView(this)
             4 -> ImgAndTextView(this)
+            5 -> TurnUpImgView(this)
             else -> null
         }
         view?.apply {

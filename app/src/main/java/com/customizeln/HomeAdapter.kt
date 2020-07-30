@@ -20,6 +20,7 @@ class HomeAdapter constructor(val onItemListener: OnItemListener) : RecyclerView
         add("头像")
         add("文字测量")
         add("图文混排")
+        add("翻起图片")
     }
     val intent = Intent()
 

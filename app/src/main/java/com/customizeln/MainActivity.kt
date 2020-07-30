@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
             4 -> ImgAndTextView(this)
             else -> null
         }
-        setContentView(view)
+        view?.apply {
+            setContentView(this)
+        }
     }
 }

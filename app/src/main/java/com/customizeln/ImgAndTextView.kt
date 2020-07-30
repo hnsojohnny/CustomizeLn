@@ -32,10 +32,11 @@ class ImgAndTextView constructor(context: Context, attr: AttributeSet?): View(co
         textSize = TEXT_SIZE
     }
     private val fontMetrics = paint.fontMetrics
+    private val bitmap = getAvator()
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas.drawBitmap(getAvator(), (width - getAvator().width).toFloat(), PADDING, paint)
+        canvas.drawBitmap(bitmap, (width - bitmap.width).toFloat(), PADDING, paint)
         drawText(canvas)
     }
 
@@ -54,8 +55,8 @@ class ImgAndTextView constructor(context: Context, attr: AttributeSet?): View(co
         var des = -fontMetrics.top
         var count: Int
         while (start < text.length){
-            count = if (des > PADDING && des - paint.fontSpacing < getAvator().height + PADDING){
-                paint.breakText(text, start, text.length, true, (width - getAvator().width).toFloat(), floatArrayOf(0f))
+            count = if (des > PADDING && des - paint.fontSpacing < bitmap.height + PADDING){
+                paint.breakText(text, start, text.length, true, (width - bitmap.width).toFloat(), floatArrayOf(0f))
             }else {
                 paint.breakText(text, start, text.length, true, width.toFloat(), floatArrayOf(0f))
             }

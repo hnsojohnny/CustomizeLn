@@ -22,6 +22,7 @@ class AvatarView constructor(context: Context, attr: AttributeSet?): View(contex
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val xfm = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+    private val bitmap = getBitmap()
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onDraw(canvas: Canvas) {
@@ -32,7 +33,7 @@ class AvatarView constructor(context: Context, attr: AttributeSet?): View(contex
         canvas.drawOval(PADDING,PADDING,
             PADDING + IMG_WIDTH, PADDING + IMG_WIDTH, paint )
         paint.xfermode = xfm
-        canvas.drawBitmap(getBitmap(), PADDING,PADDING, paint)
+        canvas.drawBitmap(bitmap, PADDING,PADDING, paint)
         paint.xfermode = null
         canvas.restoreToCount(count)
     }

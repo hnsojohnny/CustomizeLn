@@ -57,17 +57,12 @@ class AnimViewDetailActivity : AppCompatActivity() {
     }
 
     private fun turnImg(view: AnimTurnUpImgView){
-        val animator1 = ObjectAnimator.ofFloat(view, "bottomFlip", 40f.dp2px).apply {
-            duration = 1000
-        }
-        val animator2 = ObjectAnimator.ofFloat(view, "flipRotation", 30f.dp2px).apply {
-            duration = 1000
-        }
-        val animator3 = ObjectAnimator.ofFloat(view, "topFlip", 40f.dp2px).apply {
-            duration = 1000
-        }
+        val animator1 = ObjectAnimator.ofFloat(view, "bottomFlip", 40f)
+        val animator2 = ObjectAnimator.ofFloat(view, "flipRotation", 360f)
+        val animator3 = ObjectAnimator.ofFloat(view, "topFlip", -40f)
         AnimatorSet().run {
             playSequentially(animator1, animator2, animator3)
+            duration = 2000
             start()
         }
     }

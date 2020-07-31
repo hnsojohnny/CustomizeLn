@@ -3,6 +3,7 @@ package com.customizeln.view
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import com.customizeln.R
 import com.customizeln.dp2px
@@ -45,13 +46,14 @@ class AnimTurnUpImgView constructor(context: Context, attr: AttributeSet?) : Vie
     }
 
     override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
         canvas.save()
         canvas.translate(PADDING + IMG_WIDTH /2, PADDING + IMG_WIDTH /2)
         canvas.rotate(-flipRotation)
-        canvas.save()
+        camera.save()
         camera.rotateX(topFlip)
         camera.applyToCanvas(canvas)
-        canvas.restore()
+        camera.restore()
         canvas.clipRect(-IMG_WIDTH, -IMG_WIDTH,
             IMG_WIDTH, 0f)
         canvas.rotate(flipRotation)
@@ -64,10 +66,10 @@ class AnimTurnUpImgView constructor(context: Context, attr: AttributeSet?) : Vie
         canvas.save()
         canvas.translate(PADDING + IMG_WIDTH /2, PADDING + IMG_WIDTH /2)
         canvas.rotate(-flipRotation)
-        canvas.save()
+        camera.save()
         camera.rotateX(bottomFlip)
         camera.applyToCanvas(canvas)
-        canvas.restore()
+        camera.restore()
         canvas.clipRect(-IMG_WIDTH, 0f,
             IMG_WIDTH,
             IMG_WIDTH

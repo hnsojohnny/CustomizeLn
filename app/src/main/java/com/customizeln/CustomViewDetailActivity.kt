@@ -9,7 +9,7 @@ import com.customizeln.view.TurnUpImgView
 import com.example.coustomdemo.Pie
 import com.example.coustomdemo.YBPView
 
-class MainActivity : AppCompatActivity() {
+class CustomViewDetailActivity : AppCompatActivity() {
 
     private var index: Int = 0
 

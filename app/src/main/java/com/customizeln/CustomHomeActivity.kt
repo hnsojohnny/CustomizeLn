@@ -11,16 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
  * @date: 2020/7/29
  * @description:
  */
-class HomeActivity : AppCompatActivity(){
+class CustomHomeActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         val rv = findViewById<RecyclerView>(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
-        rv.adapter = HomeAdapter(object : HomeAdapter.OnItemListener {
+        rv.adapter = CustomHomeAdapter(object : CustomHomeAdapter.OnItemListener {
             override fun onClick(position: Int) {
-                Intent(this@HomeActivity, MainActivity::class.java).apply {
+                Intent(this@CustomHomeActivity, CustomViewDetailActivity::class.java).apply {
                     action = position.toString()
                     startActivity(this)
                 }

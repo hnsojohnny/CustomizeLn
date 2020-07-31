@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @date: 2020/7/29
  * @description:
  */
-class HomeAdapter constructor(val onItemListener: OnItemListener) : RecyclerView.Adapter<HomeAdapter.ViewHolder>(){
+class CustomHomeAdapter constructor(val onItemListener: OnItemListener) : RecyclerView.Adapter<CustomHomeAdapter.ViewHolder>(){
 
     val titles = arrayListOf<String>().apply {
         add("仪表盘")

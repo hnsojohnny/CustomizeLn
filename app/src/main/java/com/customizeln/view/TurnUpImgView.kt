@@ -1,9 +1,11 @@
-package com.customizeln
+package com.customizeln.view
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import com.customizeln.R
+import com.customizeln.dp2px
 
 /**
  * @author: hs-johnny
@@ -27,32 +29,42 @@ class TurnUpImgView constructor(context: Context, attr: AttributeSet?) : View(co
 
     override fun onDraw(canvas: Canvas) {
         canvas.save()
-        canvas.translate(PADDING + IMG_WIDTH/2, PADDING + IMG_WIDTH/2)
+        canvas.translate(PADDING + IMG_WIDTH /2, PADDING + IMG_WIDTH /2)
         canvas.rotate(-30f)
-        canvas.clipRect(-IMG_WIDTH, -IMG_WIDTH, IMG_WIDTH, 0f)
+        canvas.clipRect(-IMG_WIDTH, -IMG_WIDTH,
+            IMG_WIDTH, 0f)
         canvas.rotate(30f)
-        canvas.translate(-(PADDING + IMG_WIDTH/2), -(PADDING + IMG_WIDTH/2))
-        canvas.drawBitmap(bitmap, PADDING, PADDING, paint)
+        canvas.translate(-(PADDING + IMG_WIDTH /2), -(PADDING + IMG_WIDTH /2))
+        canvas.drawBitmap(bitmap,
+            PADDING,
+            PADDING, paint)
         canvas.restore()
 
         canvas.save()
-        canvas.translate(PADDING + IMG_WIDTH/2, PADDING + IMG_WIDTH/2)
+        canvas.translate(PADDING + IMG_WIDTH /2, PADDING + IMG_WIDTH /2)
         canvas.rotate(-30f)
         camera.applyToCanvas(canvas)
-        canvas.clipRect(-IMG_WIDTH, 0f, IMG_WIDTH, IMG_WIDTH)
+        canvas.clipRect(-IMG_WIDTH, 0f,
+            IMG_WIDTH,
+            IMG_WIDTH
+        )
         canvas.rotate(30f)
-        canvas.translate(-(PADDING + IMG_WIDTH/2), -(PADDING + IMG_WIDTH/2))
-        canvas.drawBitmap(bitmap, PADDING, PADDING, paint)
+        canvas.translate(-(PADDING + IMG_WIDTH /2), -(PADDING + IMG_WIDTH /2))
+        canvas.drawBitmap(bitmap,
+            PADDING,
+            PADDING, paint)
         canvas.restore()
     }
 
     private fun getImg(): Bitmap{
         val options =  BitmapFactory.Options()
         options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.lion, options)
+        BitmapFactory.decodeResource(resources,
+            R.drawable.lion, options)
         options.inJustDecodeBounds = false
         options.inDensity = options.outWidth
         options.inTargetDensity = IMG_WIDTH.toInt()
-        return BitmapFactory.decodeResource(resources, R.drawable.lion, options)
+        return BitmapFactory.decodeResource(resources,
+            R.drawable.lion, options)
     }
 }

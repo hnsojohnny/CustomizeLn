@@ -1,4 +1,4 @@
-package com.customizeln
+package com.customizeln.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,6 +8,8 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.customizeln.R
+import com.customizeln.dp2px
 
 /**
  * @author: hs-johnny
@@ -31,13 +33,17 @@ class PieAndTextView constructor(context: Context, attr: AttributeSet?): View(co
         style = Paint.Style.STROKE
         strokeWidth = STROKE_WIDTH
         strokeCap = Paint.Cap.ROUND
-        color = ContextCompat.getColor(getContext(), R.color.colorAccent)
+        color = ContextCompat.getColor(getContext(),
+            R.color.colorAccent
+        )
     }
 
     val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         strokeWidth = STROKE_WIDTH
         style = Paint.Style.STROKE
-        color = ContextCompat.getColor(getContext(), R.color.gray)
+        color = ContextCompat.getColor(getContext(),
+            R.color.gray
+        )
     }
 
     lateinit var rectF: RectF

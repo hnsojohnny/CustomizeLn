@@ -1,4 +1,4 @@
-package com.customizeln
+package com.customizeln.view
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -7,8 +7,9 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
+import com.customizeln.R
+import com.customizeln.dp2px
 
 /**
  * @author: hs-johnny
@@ -36,18 +37,21 @@ class ImgAndTextView constructor(context: Context, attr: AttributeSet?): View(co
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas.drawBitmap(bitmap, (width - bitmap.width).toFloat(), PADDING, paint)
+        canvas.drawBitmap(bitmap, (width - bitmap.width).toFloat(),
+            PADDING, paint)
         drawText(canvas)
     }
 
     fun getAvator(): Bitmap{
         val options = BitmapFactory.Options()
         options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.avator, options)
+        BitmapFactory.decodeResource(resources,
+            R.drawable.avator, options)
         options.inJustDecodeBounds = false
         options.inDensity = options.outWidth
         options.inTargetDensity = IMG_WIDTH
-        return BitmapFactory.decodeResource(resources, R.drawable.avator, options)
+        return BitmapFactory.decodeResource(resources,
+            R.drawable.avator, options)
     }
 
     private fun drawText(canvas: Canvas){

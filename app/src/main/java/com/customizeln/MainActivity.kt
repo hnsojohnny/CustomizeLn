@@ -2,6 +2,10 @@ package com.customizeln
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.customizeln.view.AvatarView
+import com.customizeln.view.ImgAndTextView
+import com.customizeln.view.PieAndTextView
+import com.customizeln.view.TurnUpImgView
 import com.example.coustomdemo.Pie
 import com.example.coustomdemo.YBPView
 

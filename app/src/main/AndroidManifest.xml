@@ -21,6 +21,7 @@
         <activity android:name=".AnimHomeActivity"/>
         <activity android:name=".CustomViewDetailActivity"/>
         <activity android:name=".AnimViewDetailActivity"/>
+        <activity android:name=".TagKeyActivity"/>
     </application>
 
 </manifest>

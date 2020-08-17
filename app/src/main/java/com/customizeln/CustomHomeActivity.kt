@@ -19,10 +19,16 @@ class CustomHomeActivity : AppCompatActivity(){
         val rv = findViewById<RecyclerView>(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = CustomHomeAdapter(object : CustomHomeAdapter.OnItemListener {
-            override fun onClick(position: Int) {
-                Intent(this@CustomHomeActivity, CustomViewDetailActivity::class.java).apply {
-                    action = position.toString()
-                    startActivity(this)
+            override fun onClick(position: Int, title: String) {
+                if (title.equals("省份provide")){
+                    Intent(this@CustomHomeActivity, TagKeyActivity::class.java).apply {
+                        startActivity(this)
+                    }
+                }else {
+                    Intent(this@CustomHomeActivity, CustomViewDetailActivity::class.java).apply {
+                        action = position.toString()
+                        startActivity(this)
+                    }
                 }
             }
         })

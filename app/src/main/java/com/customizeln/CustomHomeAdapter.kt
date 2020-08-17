@@ -14,18 +14,18 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class CustomHomeAdapter constructor(val onItemListener: OnItemListener) : RecyclerView.Adapter<CustomHomeAdapter.ViewHolder>(){
 
-    val titles = arrayListOf<String>().apply {
+    private val titles = arrayListOf<String>().apply {
         add("仪表盘")
         add("饼状图")
         add("头像")
         add("文字测量")
         add("图文混排")
         add("翻起图片")
+        add("省份provide")
     }
-    val intent = Intent()
 
     inner class ViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val title = itemView.findViewById<TextView>(R.id.title)
+        val title: TextView = itemView.findViewById(R.id.title)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,11 +38,11 @@ class CustomHomeAdapter constructor(val onItemListener: OnItemListener) : Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = titles[position]
         holder.itemView.setOnClickListener {
-            onItemListener.onClick(position)
+            onItemListener.onClick(position, titles[position])
         }
     }
 
     interface OnItemListener{
-        fun onClick(position: Int)
+        fun onClick(position: Int, title: String)
     }
 }
